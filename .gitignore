@@ -1,0 +1,4 @@
+_test_*
+*.log
+.vscode/
+node_modules/

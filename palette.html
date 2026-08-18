@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Палитры и шрифты — выбор</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Inter:wght@400;600;700&family=Playfair+Display:wght@600;800&family=Manrope:wght@400;600;800&family=Montserrat:wght@600;800&family=Open+Sans:wght@400;600&family=Golos+Text:wght@400;600;800&family=Prata&family=Roboto:wght@400;700&family=Roboto+Slab:wght@600;800&family=Comfortaa:wght@600;700&family=Rubik:wght@400;600&family=Oswald:wght@500;700&family=Lora:wght@600;700&family=Exo+2:wght@600;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --ink: #1e293b; --muted: #64748b; --line: #e2e8f0; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Inter, system-ui, sans-serif; color: var(--ink); background: #f8fafc; line-height: 1.6; }
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 48px 24px 80px; }
+    .head { text-align: center; margin-bottom: 16px; }
+    .head h1 { font-size: 36px; font-weight: 800; }
+    .head p { color: var(--muted); font-size: 17px; margin-top: 8px; }
+    .hint { text-align: center; background: #fff7ed; border: 1px solid #fed7aa; color: #9a3412; border-radius: 12px; padding: 14px 18px; font-weight: 600; max-width: 720px; margin: 20px auto 48px; }
+    .sec-title { font-size: 22px; font-weight: 800; margin: 48px 0 20px; display: flex; align-items: center; gap: 12px; }
+    .sec-title::before { content: ""; width: 6px; height: 24px; background: #f97316; border-radius: 3px; }
+
+    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .card { background: #fff; border: 2px solid var(--line); border-radius: 18px; padding: 24px; transition: .2s; }
+    .card:hover { border-color: #f97316; box-shadow: 0 16px 40px rgba(15,23,42,.08); }
+    .card h3 { font-size: 18px; margin-bottom: 4px; }
+    .card .mood { color: var(--muted); font-size: 14px; margin-bottom: 16px; }
+
+    .swatches { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 18px; }
+    .sw { border-radius: 12px; overflow: hidden; border: 1px solid rgba(0,0,0,.06); }
+    .sw .chip { height: 56px; }
+    .sw .meta { font-size: 11px; padding: 6px 8px; background: #f8fafc; }
+    .sw .meta b { display: block; font-size: 11px; }
+    .sw .meta span { color: var(--muted); font-size: 10px; }
+
+    .mock { border-radius: 12px; padding: 18px; border: 1px solid rgba(0,0,0,.06); display: flex; flex-direction: column; gap: 10px; }
+    .mock-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .mock-btn { border: none; border-radius: 9px; padding: 9px 16px; font-weight: 700; font-size: 13px; cursor: pointer; }
+    .mock .lb { font-size: 12px; color: var(--muted); margin-top: 8px; }
+    .mock-row { display: flex; gap: 10px; flex-wrap: wrap; }
+
+    .f-card { background: #fff; border: 2px solid var(--line); border-radius: 18px; padding: 26px; }
+    .f-card:hover { border-color: #f97316; box-shadow: 0 16px 40px rgba(15,23,42,.08); }
+    .f-card h3 { font-size: 18px; margin-bottom: 4px; }
+    .f-card .mood { color: var(--muted); font-size: 14px; margin-bottom: 18px; }
+    .f-pair { font-size: 13px; color: var(--muted); margin-bottom: 16px; }
+    .f-preview-head { font-size: 30px; font-weight: 800; line-height: 1.15; margin-bottom: 10px; }
+    .f-preview-body { font-size: 15px; color: #475569; max-width: 460px; }
+    .f-preview-body b { color: #f97316; }
+
+    .badge { display: inline-block; background: #dcfce7; color: #166534; font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 100px; margin-left: 8px; vertical-align: middle; }
+
+    @media (max-width: 800px) {
+      .grid { grid-template-columns: 1fr; }
+      .swatches { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="head">
+      <h1>Палитра и шрифты</h1>
+      <p>Выберите номер палитры и пару шрифтов — и напишите мне, какие нравятся</p>
+    </div>
+    <div class="hint">Как выбирать: палитра отвечает за настроение и CTA, шрифты — за характер. Комбинируйте любые номера (например «палитра 2 + шрифт 4»).</div>
+
+    <div class="sec-title">Палитры</div>
+    <div class="grid">
+
+      <div class="card">
+        <h3>Палитра 1 — «Энергия» <span class="badge">текущая</span></h3>
+        <p class="mood">Тёмный + оранжевый. Уверенность, действие, максимальная конверсия CTA</p>
+        <div class="swatches">
+          <div class="sw"><div class="chip" style="background:#0f172a"></div><div class="meta"><b>dark</b><span>#0f172a</span></div></div>
+          <div class="sw"><div class="chip" style="background:#f97316"></div><div class="meta"><b>accent</b><span>#f97316</span></div></div>
+          <div class="sw"><div class="chip" style="background:#ffffff"></div><div class="meta"><b>bg</b><span>#ffffff</span></div></div>
+          <div class="sw"><div class="chip" style="background:#f1f5f9"></div><div class="meta"><b>soft</b><span>#f1f5f9</span></div></div>
+        </div>
+        <div class="mock" style="background:#0f172a;color:#fff">
+          <div class="mock-top"><span style="font-weight:800">Елизавета Беленкова</span><button class="mock-btn" style="background:#f97316;color:#fff">Получить аудит</button></div>
+          <p style="font-size:14px;color:#cbd5e1">Окупаемость х2–х8 на холодном трафике</p>
+        </div>
+        <p class="lb">Активная конверсия с рекламы, уверенность и драйв.</p>
+      </div>
+
+      <div class="card">
+        <h3>Палитра 2 — «Корпоративный»</h3>
+        <p class="mood">Глубокий синий + синий акцент. Доверие, экспертность, финансовая серьёзность</p>
+        <div class="swatches">
+          <div class="sw"><div class="chip" style="background:#0f1c3a"></div><div class="meta"><b>dark</b><span>#0f1c3a</span></div></div>
+          <div class="sw"><div class="chip" style="background:#2563eb"></div><div class="meta"><b>accent</b><span>#2563eb</span></div></div>
+          <div class="sw"><div class="chip" style="background:#ffffff"></div><div class="meta"><b>bg</b><span>#ffffff</span></div></div>
+          <div class="sw"><div class="chip" style="background:#f0f4ff"></div><div class="meta"><b>soft</b><span>#f0f4ff</span></div></div>
+        </div>
+        <div class="mock" style="background:#0f1c3a;color:#fff">
+          <div class="mock-top"><span style="font-weight:800">Елизавета Беленкова</span><button class="mock-btn" style="background:#2563eb;color:#fff">Получить аудит</button></div>
+          <p style="font-size:14px;color:#cbd5e1">Окупаемость х2–х8 на холодном трафике</p>
+        </div>
+        <p class="lb">«Серьёзный консалтинг»: доверие для B2B и больших бюджетов.</p>
+      </div>
+
+      <div class="card">
+        <h3>Палитра 3 — «Премиум»</h3>
+        <p class="mood">Тёмно-зелёный + золото. Деньги, статус, дорогие проекты и высокий чек</p>
+        <div class="swatches">
+          <div class="sw"><div class="chip" style="background:#0b1f1a"></div><div class="meta"><b>dark</b><span>#0b1f1a</span></div></div>
+          <div class="sw"><div class="chip" style="background:#c8a951"></div><div class="meta"><b>accent</b><span>#c8a951</span></div></div>
+          <div class="sw"><div class="chip" style="background:#fbfaf6"></div><div class="meta"><b>bg</b><span>#fbfaf6</span></div></div>
+          <div class="sw"><div class="chip" style="background:#f1ede2"></div><div class="meta"><b>soft</b><span>#f1ede2</span></div></div>
+        </div>
+        <div class="mock" style="background:#0b1f1a;color:#fff">
+          <div class="mock-top"><span style="font-weight:800">Елизавета Беленкова</span><button class="mock-btn" style="background:#c8a951;color:#0b1f1a">Получить аудит</button></div>
+          <p style="font-size:14px;color:#cbd5e1">Окупаемость х2–х8 на холодном трафике</p>
+        </div>
+        <p class="lb">Спокойно и дорого — премиум и аналитика «для своих».</p>
+      </div>
+
+      <div class="card">
+        <h3>Палитра 4 — «Технологичный»</h3>
+        <p class="mood">Индиго + лайм. Современный рынок, стартапы, онлайн-школы и приложения</p>
+        <div class="swatches">
+          <div class="sw"><div class="chip" style="background:#1e1b4b"></div><div class="meta"><b>dark</b><span>#1e1b4b</span></div></div>
+          <div class="sw"><div class="chip" style="background:#6366f1"></div><div class="meta"><b>accent</b><span>#6366f1</span></div></div>
+          <div class="sw"><div class="chip" style="background:#ffffff"></div><div class="meta"><b>bg</b><span>#ffffff</span></div></div>
+          <div class="sw"><div class="chip" style="background:#eef2ff"></div><div class="meta"><b>soft</b><span>#eef2ff</span></div></div>
+        </div>
+        <div class="mock" style="background:#1e1b4b;color:#fff">
+          <div class="mock-top"><span style="font-weight:800">Елизавета Беленкова</span><button class="mock-btn" style="background:#a3e635;color:#1e1b4b">Получить аудит</button></div>
+          <p style="font-size:14px;color:#cbd5e1">Окупаемость х2–х8 на холодном трафике</p>
+        </div>
+        <p class="lb">Продуктовый вайб, ближе к онлайн-школам и стартапам.</p>
+      </div>
+
+      <div class="card">
+        <h3>Палитра 5 — «Нежность»</h3>
+        <p class="mood">Сливовый тёмный + розовый. Личный бренд, женственная аудитория, мягкое доверие</p>
+        <div class="swatches">
+          <div class="sw"><div class="chip" style="background:#3b0f2f"></div><div class="meta"><b>dark</b><span>#3b0f2f</span></div></div>
+          <div class="sw"><div class="chip" style="background:#ec4899"></div><div class="meta"><b>accent</b><span>#ec4899</span></div></div>
+          <div class="sw"><div class="chip" style="background:#ffffff"></div><div class="meta"><b>bg</b><span>#ffffff</span></div></div>
+          <div class="sw"><div class="chip" style="background:#fdf2f8"></div><div class="meta"><b>soft</b><span>#fdf2f8</span></div></div>
+        </div>
+        <div class="mock" style="background:#3b0f2f;color:#fff">
+          <div class="mock-top"><span style="font-weight:800">Елизавета Беленкова</span><button class="mock-btn" style="background:#ec4899;color:#fff">Получить аудит</button></div>
+          <p style="font-size:14px;color:#fbcfe8">Окупаемость х2–х8 на холодном трафике</p>
+        </div>
+        <p class="lb">Эмоциональный, тёплый, выделяется среди серых конкурентов.</p>
+      </div>
+
+      <div class="card">
+        <h3>Палитра 6 — «Океан»</h3>
+        <p class="mood">Глубокий бирюзовый + аквамарин. Спокойствие, море, устойчивость</p>
+        <div class="swatches">
+          <div class="sw"><div class="chip" style="background:#083344"></div><div class="meta"><b>dark</b><span>#083344</span></div></div>
+          <div class="sw"><div class="chip" style="background:#0d9488"></div><div class="meta"><b>accent</b><span>#0d9488</span></div></div>
+          <div class="sw"><div class="chip" style="background:#ffffff"></div><div class="meta"><b>bg</b><span>#ffffff</span></div></div>
+          <div class="sw"><div class="chip" style="background:#ecfeff"></div><div class="meta"><b>soft</b><span>#ecfeff</span></div></div>
+        </div>
+        <div class="mock" style="background:#083344;color:#fff">
+          <div class="mock-top"><span style="font-weight:800">Елизавета Беленкова</span><button class="mock-btn" style="background:#fb7185;color:#fff">Получить аудит</button></div>
+          <p style="font-size:14px;color:#cffafe">Окупаемость х2–х8 на холодном трафике</p>
+        </div>
+        <p class="lb">Бирюза + коралловый CTA: свежий, но солидный контраст.</p>
+      </div>
+
+      <div class="card">
+        <h3>Палитра 7 — «Минимализм»</h3>
+        <p class="mood">Чёрно-белый + красный. Редакционный стиль, чёткость, максимальный контраст</p>
+        <div class="swatches">
+          <div class="sw"><div class="chip" style="background:#111111"></div><div class="meta"><b>dark</b><span>#111111</span></div></div>
+          <div class="sw"><div class="chip" style="background:#ef4444"></div><div class="meta"><b>accent</b><span>#ef4444</span></div></div>
+          <div class="sw"><div class="chip" style="background:#ffffff"></div><div class="meta"><b>bg</b><span>#ffffff</span></div></div>
+          <div class="sw"><div class="chip" style="background:#fafafa"></div><div class="meta"><b>soft</b><span>#fafafa</span></div></div>
+        </div>
+        <div class="mock" style="background:#111111;color:#fff">
+          <div class="mock-top"><span style="font-weight:800">Елизавета Беленкова</span><button class="mock-btn" style="background:#ef4444;color:#fff">Получить аудит</button></div>
+          <p style="font-size:14px;color:#a3a3a3">Окупаемость х2–х8 на холодном трафике</p>
+        </div>
+        <p class="lb">Монохром + один агрессивный акцент. Максимальная читаемость.</p>
+      </div>
+
+      <div class="card">
+        <h3>Палитра 8 — «Лаванда»</h3>
+        <p class="mood">Глубокий фиолетовый + пурпур. Творчество, интуиция, аналитика вне шаблонов</p>
+        <div class="swatches">
+          <div class="sw"><div class="chip" style="background:#221c3f"></div><div class="meta"><b>dark</b><span>#221c3f</span></div></div>
+          <div class="sw"><div class="chip" style="background:#7c3aed"></div><div class="meta"><b>accent</b><span>#7c3aed</span></div></div>
+          <div class="sw"><div class="chip" style="background:#ffffff"></div><div class="meta"><b>bg</b><span>#ffffff</span></div></div>
+          <div class="sw"><div class="chip" style="background:#f5f3ff"></div><div class="meta"><b>soft</b><span>#f5f3ff</span></div></div>
+        </div>
+        <div class="mock" style="background:#221c3f;color:#fff">
+          <div class="mock-top"><span style="font-weight:800">Елизавета Беленкова</span><button class="mock-btn" style="background:#a78bfa;color:#221c3f">Получить аудит</button></div>
+          <p style="font-size:14px;color:#ddd6fe">Окупаемость х2–х8 на холодном трафике</p>
+        </div>
+        <p class="lb">Мягче, чем техно-индиго: спокойный, но запоминающийся.</p>
+      </div>
+
+      <div class="card">
+        <h3>Палитра 9 — «Закат»</h3>
+        <p class="mood">Тёмный бордо + фуксия. Смелый, современный, для личного бренда</p>
+        <div class="swatches">
+          <div class="sw"><div class="chip" style="background:#2a0a1f"></div><div class="meta"><b>dark</b><span>#2a0a1f</span></div></div>
+          <div class="sw"><div class="chip" style="background:#f43f5e"></div><div class="meta"><b>accent</b><span>#f43f5e</span></div></div>
+          <div class="sw"><div class="chip" style="background:#fff7f7"></div><div class="meta"><b>bg</b><span>#fff7f7</span></div></div>
+          <div class="sw"><div class="chip" style="background:#fff1f2"></div><div class="meta"><b>soft</b><span>#fff1f2</span></div></div>
+        </div>
+        <div class="mock" style="background:#2a0a1f;color:#fff">
+          <div class="mock-top"><span style="font-weight:800">Елизавета Беленкова</span><button class="mock-btn" style="background:#fb7185;color:#2a0a1f">Получить аудит</button></div>
+          <p style="font-size:14px;color:#fecdd3">Окупаемость х2–х8 на холодном трафике</p>
+        </div>
+        <p class="lb">Драматичный контраст, хорошо работает для женской ниши и школ.</p>
+      </div>
+
+      <div class="card">
+        <h3>Палитра 10 — «Терракота»</h3>
+        <p class="mood">Тёплый шоколад + терракотовый. Уютный премиум, кожа и дерево, эстетика «натурально»</p>
+        <div class="swatches">
+          <div class="sw"><div class="chip" style="background:#2b1b12"></div><div class="meta"><b>dark</b><span>#2b1b12</span></div></div>
+          <div class="sw"><div class="chip" style="background:#bc6c3c"></div><div class="meta"><b>accent</b><span>#bc6c3c</span></div></div>
+          <div class="sw"><div class="chip" style="background:#fffaf5"></div><div class="meta"><b>bg</b><span>#fffaf5</span></div></div>
+          <div class="sw"><div class="chip" style="background:#faf0e6"></div><div class="meta"><b>soft</b><span>#faf0e6</span></div></div>
+        </div>
+        <div class="mock" style="background:#2b1b12;color:#fff">
+          <div class="mock-top"><span style="font-weight:800">Елизавета Беленкова</span><button class="mock-btn" style="background:#bc6c3c;color:#fff">Получить аудит</button></div>
+          <p style="font-size:14px;color:#d6c3b3">Окупаемость х2–х8 на холодном трафике</p>
+        </div>
+        <p class="lb">Тёплый, дорогой, спокойный — выделяется среди синих и серых.</p>
+      </div>
+
+    </div>
+
+    <div class="sec-title">Шрифты</div>
+    <div class="grid">
+
+      <div class="f-card">
+        <h3>Шрифт 1 — «Современный» <span class="badge">текущий</span></h3>
+        <p class="mood">Громкие заголовки Unbounded + чистый текст Inter</p>
+        <p class="f-pair">Unbounded (заголовки) · Inter (текст)</p>
+        <div class="f-preview-head" style="font-family:'Unbounded',sans-serif">Контекстная реклама с окупаемостью х2–х8</div>
+        <div class="f-preview-body" style="font-family:'Inter',sans-serif">Внедряем авторскую систему <b>сквозной аналитики</b> бесплатно — каждый рубль бюджета приносит заявки, а не клики.</div>
+      </div>
+
+      <div class="f-card">
+        <h3>Шрифт 2 — «Премиум»</h3>
+        <p class="mood">Элегантный Playfair Display + стройный Manrope</p>
+        <p class="f-pair">Playfair Display (заголовки) · Manrope (текст)</p>
+        <div class="f-preview-head" style="font-family:'Playfair Display',serif">Контекстная реклама с окупаемостью х2–х8</div>
+        <div class="f-preview-body" style="font-family:'Manrope',sans-serif">Внедряем авторскую систему <b>сквозной аналитики</b> бесплатно — каждый рубль бюджета приносит заявки, а не клики.</div>
+      </div>
+
+      <div class="f-card">
+        <h3>Шрифт 3 — «Классика»</h3>
+        <p class="mood">Надёжный Montserrat + универсальный Open Sans</p>
+        <p class="f-pair">Montserrat (заголовки) · Open Sans (текст)</p>
+        <div class="f-preview-head" style="font-family:'Montserrat',sans-serif">Контекстная реклама с окупаемостью х2–х8</div>
+        <div class="f-preview-body" style="font-family:'Open Sans',sans-serif">Внедряем авторскую систему <b>сквозной аналитики</b> бесплатно — каждый рубль бюджета приносит заявки, а не клики.</div>
+      </div>
+
+      <div class="f-card">
+        <h3>Шрифт 4 — «Яндекс.Go»</h3>
+        <p class="mood">Родной шрифт Яндекса Golos Text — тёплая ассоциация с Яндекс.Директ</p>
+        <p class="f-pair">Golos Text 800 (заголовки) · Golos Text 400 (текст)</p>
+        <div class="f-preview-head" style="font-family:'Golos Text',sans-serif">Контекстная реклама с окупаемостью х2–х8</div>
+        <div class="f-preview-body" style="font-family:'Golos Text',sans-serif">Внедряем авторскую систему <b>сквозной аналитики</b> бесплатно — каждый рубль бюджета приносит заявки, а не клики.</div>
+      </div>
+
+      <div class="f-card">
+        <h3>Шрифт 5 — «Элегантный»</h3>
+        <p class="mood">Тонкий премиум Prata + чистый Inter. Аристократично и женственно</p>
+        <p class="f-pair">Prata (заголовки) · Inter (текст)</p>
+        <div class="f-preview-head" style="font-family:'Prata',serif;font-weight:400">Контекстная реклама с окупаемостью х2–х8</div>
+        <div class="f-preview-body" style="font-family:'Inter',sans-serif">Внедряем авторскую систему <b>сквозной аналитики</b> бесплатно — каждый рубль бюджета приносит заявки, а не клики.</div>
+      </div>
+
+      <div class="f-card">
+        <h3>Шрифт 6 — «Инженерный»</h3>
+        <p class="mood">Roboto Slab + Roboto. Деловой характер, аналитика и отчёты</p>
+        <p class="f-pair">Roboto Slab (заголовки) · Roboto (текст)</p>
+        <div class="f-preview-head" style="font-family:'Roboto Slab',serif">Контекстная реклама с окупаемостью х2–х8</div>
+        <div class="f-preview-body" style="font-family:'Roboto',sans-serif">Внедряем авторскую систему <b>сквозной аналитики</b> бесплатно — каждый рубль бюджета приносит заявки, а не клики.</div>
+      </div>
+
+      <div class="f-card">
+        <h3>Шрифт 7 — «Дружелюбный»</h3>
+        <p class="mood">Мягкие округлые Comfortaa + Rubik. Тёплый и человечный</p>
+        <p class="f-pair">Comfortaa (заголовки) · Rubik (текст)</p>
+        <div class="f-preview-head" style="font-family:'Comfortaa',sans-serif">Контекстная реклама с окупаемостью х2–х8</div>
+        <div class="f-preview-body" style="font-family:'Rubik',sans-serif">Внедряем авторскую систему <b>сквозной аналитики</b> бесплатно — каждый рубль бюджета приносит заявки, а не клики.</div>
+      </div>
+
+      <div class="f-card">
+        <h3>Шрифт 8 — «Плакатный»</h3>
+        <p class="mood">Компактный Oswald + Open Sans. Редакционный, как афиша или новости</p>
+        <p class="f-pair">Oswald (заголовки) · Open Sans (текст)</p>
+        <div class="f-preview-head" style="font-family:'Oswald',sans-serif;font-weight:500;text-transform:uppercase">Контекстная реклама с окупаемостью х2–х8</div>
+        <div class="f-preview-body" style="font-family:'Open Sans',sans-serif">Внедряем авторскую систему <b>сквозной аналитики</b> бесплатно — каждый рубль бюджета приносит заявки, а не клики.</div>
+      </div>
+
+      <div class="f-card">
+        <h3>Шрифт 9 — «Читабельный»</h3>
+        <p class="mood">Книжный Lora + Inter. Длинные тексты читаются легко и приятно</p>
+        <p class="f-pair">Lora (заголовки) · Inter (текст)</p>
+        <div class="f-preview-head" style="font-family:'Lora',serif">Контекстная реклама с окупаемостью х2–х8</div>
+        <div class="f-preview-body" style="font-family:'Inter',sans-serif">Внедряем авторскую систему <b>сквозной аналитики</b> бесплатно — каждый рубль бюджета приносит заявки, а не клики.</div>
+      </div>
+
+      <div class="f-card">
+        <h3>Шрифт 10 — «Футуристичный»</h3>
+        <p class="mood">Технологичный Exo 2 + Inter. Инновации, IT, стартапы</p>
+        <p class="f-pair">Exo 2 (заголовки) · Inter (текст)</p>
+        <div class="f-preview-head" style="font-family:'Exo 2',sans-serif">Контекстная реклама с окупаемостью х2–х8</div>
+        <div class="f-preview-body" style="font-family:'Inter',sans-serif">Внедряем авторскую систему <b>сквозной аналитики</b> бесплатно — каждый рубль бюджета приносит заявки, а не клики.</div>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>
