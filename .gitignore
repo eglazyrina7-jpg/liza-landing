@@ -2,3 +2,17 @@ _test_*
 *.log
 .vscode/
 node_modules/
+
+# Учебные и рабочие материалы (не на GitHub)
+Карточки/
+Курс Каменец/
+Полина обучение/
+семантика_фонды.txt
+test.png
+palette.html
+exp.html
+posuda.png
+8df617bc-4471-4aeb-bbff-120cb075c627.jpg
+Отзывы/hrip*.png
+Отзывы/pox*.png
+Отзывы/pravda*.png
